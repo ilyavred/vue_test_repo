@@ -126,28 +126,28 @@ export default {
   props: {
     deal: {
       type: Object,
-      // default: function() {
-      //   return {
-      //     id:123456,
-      //     title:'Мастер-класс большой теннис, 1-3 часа игры в футбол. Скидка 50%',
-      //     in_top:true,
-      //     published_date:'December 12, 2020 00:00:00 GMT+06:00',
-      //     duration:30,
-      //     activation_lag:30,
-      //     statistic_summary: {
-      //       viewed:12543,
-      //       buyed:130,
-      //       activated:126,
-      //       raiting:4.8,
-      //     },
-      //     statistic_daily:{
-      //       viewed:53,
-      //       buyed:12,
-      //       activated:2,
-      //       raiting_ystd:4.5,
-      //     }
-      //   }
-      // }
+      default: function() {
+        return {
+          id:0,
+          title:'Демонстрационная акция! Изучи функционал мерчант кабинета на этом примере.',
+          in_top:false,
+          published_date:'January 30, 2020 00:00:00 GMT+06:00',
+          duration:360,
+          activation_lag:30,
+          statistic_summary: {
+            viewed:0,
+            buyed:0,
+            activated:0,
+            raiting:0,
+          },
+          statistic_daily:{
+            viewed:0,
+            buyed:0,
+            activated:0,
+            raiting_ystd:0,
+          }
+        }
+      }
     }
   },
   data: function() {
@@ -168,48 +168,6 @@ export default {
         pending:' акция не опубликована',
         demo:' демонстрационная',
       },
-      // deals: [
-      //   {
-      //     id:123456,
-      //     title:'Мастер-класс большой теннис, 1-3 часа игры в футбол. Скидка 50%',
-      //     in_top:true,
-      //     published_date:'December 12, 2020 00:00:00 GMT+06:00',
-      //     duration:30,
-      //     activation_lag:30,
-      //     statistic_summary: {
-      //       viewed:12543,
-      //       buyed:130,
-      //       activated:126,
-      //       raiting:4.8,
-      //     },
-      //     statistic_daily:{
-      //       viewed:53,
-      //       buyed:12,
-      //       activated:2,
-      //       raiting_ystd:4.5,
-      //     }
-      //   },
-      //   {
-      //     id:652435,
-      //     title:'Демонстрационная акция! Изучи функционал мерчант кабинета на этом примере.',
-      //     in_top:true,
-      //     published_date:'January 12, 2021 00:00:00 GMT+06:00',
-      //     duration:30,
-      //     activation_lag:30,
-      //     statistic_summary: {
-      //       viewed:12543,
-      //       buyed:130,
-      //       activated:126,
-      //       raiting:4.8,
-      //     },
-      //     statistic_daily:{
-      //       viewed:53,
-      //       buyed:12,
-      //       activated:2,
-      //       raiting_ystd:4.8,
-      //     }
-      //   },
-      // ]
 		}
   },
   mounted: function() {
@@ -279,11 +237,7 @@ export default {
     }
   },
   computed: {
-    // onSales: function() {
-    //   var now = Date.now()
-    //   var publ = new Date(props.deal.published_date).getTime()
-    //   this.onsales = Math.floor((now - publ)/1000/60/60/24)
-    // }
+
   },
 
   watch: {
