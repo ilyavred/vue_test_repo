@@ -1,0 +1,144 @@
+#sheduller {
+  font-family: Tahoma, Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+  display: block;
+  width: 360px;
+}
+
+a,
+button {
+  color: #4fc08d;
+}
+
+button {
+  background: none;
+  border: solid 1px;
+  border-radius: 2em;
+  font: inherit;
+  padding: 0.75em 2em;
+}
+
+div.pack .add-different, div.single .add-different {
+  display: none;
+}
+
+div.week-day {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  margin: 0px 8px;
+  text-align: left;
+}
+
+div.week-day .radio-button {
+  width: 26px;
+  height: 14px;
+  text-align: center;
+  font-size: 12px;
+  border: solid 1px;
+  border-radius: 16px;
+  display: table-cell;
+  padding: 8px 16px;
+  cursor: pointer;
+  vertical-align: middle;
+  margin: 2px 10px 2px 0px;
+  /*outline: solid 2px #fff;*/
+}
+
+div.pack .radio-button, div.single .radio-button {
+  border-color: #4688D8;
+  background-color: #4688D8;
+  color: #fff;
+}
+
+div.packoff .radio-button, div.singleoff .radio-button {
+  border-color: #88BEFF;
+  color: #2367B9;
+  background-color: #fff;
+  /*margin:14px 10px 14px 0;*/
+}
+
+.add-different {
+  font-size: 12px;
+  color: #2367B9;
+  display: table-cell;
+  padding: 8px;
+}
+
+div.pack .bracket {
+  width: 10px;
+  overflow: visible;
+  display: flex;
+  padding: 0px 0px;
+}
+
+div.pack .bracket .outline {
+  flex-basis: 10px;
+  height: 36px;
+  overflow: absolute;
+  border-right: solid 2px #88BEFF;
+  display: flex;
+  padding: 0px;
+}
+
+div.pack.first .bracket .outline {
+  flex-basis: 10px;
+  height: 18px;
+  overflow: absolute;
+  border-right: solid 2px #88BEFF;
+  border-top: solid 2px #88BEFF;
+  display: flex;
+  margin: 16px 0px 0px 0px;
+}
+
+div.pack.last .bracket .outline {
+  flex-basis: 10px;
+  height: 18px;
+  overflow: absolute;
+  border-right: solid 2px #88BEFF;
+  border-bottom: solid 2px #88BEFF;
+  display: flex;
+  margin: 0px 0px 16px 0px;
+}
+
+.clear-diff {
+  font-size: 12px;
+  color: #FD6D5A;
+  padding: 8px;
+}
+
+div.pack .clear-diff, div.packoff .clear-diff {
+  display: none;
+}
+
+.day-shedule {
+  padding: 0 8px;
+  display: flex;
+}
+
+div.pack .day-shedule, div.packoff .day-shedule, div.singleoff .day-shedule {
+  display: none;
+}
+
+div.pack.first .day-shedule {
+  display: flex;
+  position: relative;
+  z-index: 100;
+  /*top:calc(((36px * 5) - 36px) / 2);*/
+}
+
+.day-shedule input {
+  border: 1px solid #979797;
+  border-radius: 6px;
+  padding: 0px 16px;
+  margin: 0 4px;
+  font-family: tahoma;
+}
+
+div.singleoff span.clear-diff {
+  display: none;
+}
+
+/*# sourceMappingURL=sheduller.css.map */
