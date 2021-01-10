@@ -1,11 +1,77 @@
+html
+	scroll-behavior: smooth
+
+body
+	margin: 0
+	padding: 0
+	width: 100%
+	height: auto
+
+	// display: grid
+
 #app
 	font-family: Tahoma, Trebuthet, Arial, sans-serif
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
-	text-align: center
+	// text-align: center
 	color: #2c3e50
-	// margin-top: 60px
-	display: inline-block
+	margin: 20px 0
+	display: block
+
+	width: 100vw
+	// resize: both
+
+.deals-list
+	$padding: 16px
+	padding: 0 $padding 0 $padding
+	width: calc(100% - ($padding * 2))
+
+	// grid-column-start: 2
+	display: grid
+	grid-template-columns: 50fr 50fr
+	// grid-template-areas: ". app ."
+	grid-gap: 20px
+
+@media screen and (min-device-width: 481px) and (max-device-width: 600px) and (-webkit-min-device-pixel-ratio: 1)
+	#app
+		margin: 30px 0
+
+	.deals-list
+		$padding: 8px
+		padding: 0 $padding 0 $padding
+		width: calc(100% - ($padding * 2))
+		// transform: scale(2, 2)
+		// transform-origin: top left
+		grid-template-columns: 50vw 50vw
+		width: 100vw
+
+@media screen and (min-device-width: 365px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)
+	#app
+		margin: 60px 0
+
+	.deals-list
+		$padding: 5px
+		padding: 0 $padding 0 $padding
+		width: calc(100% - ($padding * 2))
+
+		transform: scale(4, 4)
+		transform-origin: top left
+		grid-template-columns: calc(100% - 0px)
+		width: 36vw
+
+@media screen and (min-device-width: 1px) and (max-device-width: 364px) and (-webkit-min-device-pixel-ratio: 2)
+	#app
+		margin: 60px 0
+
+	.deals-list
+		$padding: 5px
+		padding: 0 $padding 0 $padding
+		width: calc(100% - ($padding * 2))
+
+		transform: scale(3, 3)
+		transform-origin: top left
+		grid-template-columns: calc(100% - 0px)
+		width: 36vw
 
 h1
 	font-weight: normal

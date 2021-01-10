@@ -11,29 +11,47 @@
 
 .deal-thumb {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: flex-start;
   padding: 0px;
-  margin: 20px 0;
-  width: 366px;
-  background: #FFFFFF;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.35);
-  border-radius: 6px 6px 0px 0px;
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.35);
+  margin: 0px;
+  flex: none;
+  flex-basis: 100%;
+  overflow: visible;
 }
 
-.deal-thumb[data-status=pending] {
+/* Portrait and Landscape */
+.deal-thumb[data-status=pending] .deal-thumb__base {
   background: #FBFBFB;
   box-shadow: none !important;
   border: 1px dashed #666666;
 }
 
 .deal-thumb__base {
+  z-index: 10;
   display: flex;
+  position: relative;
+  left: 0;
   align-self: stretch;
-  flex: none;
+  justify-content: space-between;
+  flex: 1;
+  flex-grow: 2;
   flex-direction: column;
+  background: #FFFFFF;
+  border-radius: 6px 6px 0px 0px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.35);
+  transition-property: left, box-shadow;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+.context {
+  left: -200px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: -6px 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .deal-thumb__base__status {
@@ -54,6 +72,12 @@
   line-height: 10px;
   text-align: left;
 }
+.deal-thumb__base__status__marker::before {
+  content: "●";
+  font-size: 14px;
+  line-height: 9px;
+  padding: 0 2px 0 0;
+}
 
 [data-status=sales_on] div.deal-thumb__base__status__marker {
   color: #27AE60;
@@ -71,13 +95,6 @@
 }
 [data-status=pending] .deal-thumb__base__content__data__funnel .daily {
   display: none;
-}
-
-.deal-thumb__base__status__marker::before {
-  content: "●";
-  font-size: 14px;
-  line-height: 9px;
-  padding: 0 2px 0 0;
 }
 
 .deal-thumb__base__status__top {
@@ -113,8 +130,11 @@
 
 .deal-thumb__base__content__data {
   flex: 1;
+  display: flex;
   order: 2;
   align-self: stretch;
+  align-items: flex-start;
+  flex-grow: 1;
   flex-direction: row;
   flex-wrap: nowrap;
   margin: 10px 0;
@@ -123,11 +143,12 @@
 .deal-thumb__base__content__data__dates {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  flex: 1;
-  order: 1;
-  width: 130px;
-  float: left;
+  align-items: stretch;
+  align-self: flex-start;
+  flex-basis: 130px;
+  order: 0;
+  flex-grow: 0;
+  margin: 0 16px 0 0;
 }
 
 .deal-thumb__base__content__data__dates__id {
@@ -137,6 +158,9 @@
   align-items: stretch;
   color: #4688D8;
 }
+.deal-thumb__base__content__data__dates__id span {
+  text-align: left;
+}
 .deal-thumb__base__content__data__dates__id span.demo {
   color: #D62E27;
 }
@@ -144,10 +168,18 @@
 .base__content__data__dates__table {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: stretch;
   padding: 0px;
   margin: 8px 0 0 0;
-  flex: none;
+  flex: 1;
+}
+.base__content__data__dates__table span {
+  padding-top: 12px;
+  align-self: stretch;
+  text-align: left;
+}
+.base__content__data__dates__table span:first-child {
+  padding-top: 0;
 }
 
 .base__content__data__dates__table__keys {
@@ -169,37 +201,26 @@
   flex-direction: column;
   align-items: stretch;
   padding: 0px;
-  flex: none;
   order: 1;
+  flex-basis: 68px;
   flex-grow: 0;
   font-size: 11px;
   line-height: 13px;
   text-align: right;
   color: #303030;
 }
-
-.base__content__data__dates__table span {
-  padding-top: 12px;
-  align-self: stretch;
-  text-align: left;
-}
-
-.base__content__data__dates__table span:first-child {
-  padding-top: 0;
-}
-
 .base__content__data__dates__table__values span {
   text-align: right;
+  flex: 1;
+  align-self: stretch;
 }
 
 .deal-thumb__base__content__data__funnel {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: calc(100% - 146px);
-  flex: 1;
-  order: 0;
-  float: right;
+  flex-grow: 2;
+  order: 1;
 }
 
 .deal-thumb__base__content__data__funnel__left-title {
@@ -244,6 +265,7 @@
   flex-direction: row;
   align-items: center;
   padding: 0px 8px 0px 0px;
+  order: 0;
 }
 
 .label__icon {
@@ -262,7 +284,7 @@
 }
 
 .summary {
-  flex: none;
+  flex: 1;
   order: 1;
   flex-grow: 1;
   font-size: 18px;
@@ -326,8 +348,9 @@ div.daily span.zero {
   flex: 1;
   flex-grow: 1;
   margin: 0px 0px;
+  cursor: pointer;
 }
-.actions .button .button__icon {
+.actions .button svg {
   width: 24px;
   height: 24px;
   flex: none;
@@ -352,6 +375,9 @@ div.daily span.zero {
 .actions .button.up-to-top svg path {
   fill: #FFFFFF;
 }
+.actions .button.up-to-top:hover, .actions .button.up-to-top:active {
+  background: #fcd23b;
+}
 .actions .button.show-more {
   order: 1;
   background: #4688D8;
@@ -359,6 +385,9 @@ div.daily span.zero {
 }
 .actions .button.show-more svg path {
   fill: #FFFFFF;
+}
+.actions .button.show-more:hover, .actions .button.show-more:active {
+  background: #5b96dc;
 }
 .actions .button.preview-on-site {
   order: 2;
@@ -369,6 +398,10 @@ div.daily span.zero {
 }
 .actions .button.preview-on-site svg path {
   fill: #FFFFFF;
+}
+.actions .button.preview-on-site:hover, .actions .button.preview-on-site:active {
+  background: #737373;
+  outline-color: #737373;
 }
 
 /*# sourceMappingURL=deal-thumbnail.css.map */

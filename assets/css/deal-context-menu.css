@@ -1,0 +1,69 @@
+.context_menu {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  flex: 0;
+  z-index: 1;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-self: flex-start;
+  flex-grow: 0;
+  width: 0px;
+}
+.context_menu > div {
+  padding: 0 6px 0 0;
+  transition-property: padding;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+.context_menu.visible > div {
+  padding: 0;
+}
+.context_menu .menu__list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  z-index: 1;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-self: flex-end;
+}
+.context_menu .menu__list .menu__list__item {
+  text-decoration: none;
+  font-size: 12px;
+  color: #2367B9;
+  background: rgba(70, 136, 216, 0.1);
+  padding: 13px 10px;
+  min-width: 180px;
+  margin: 1px 0;
+  text-align: left;
+}
+.context_menu .menu__list .menu__list__item:first-child {
+  margin: 0 0 1px 0;
+}
+.context_menu .menu__list .menu__list__item:last-child {
+  margin: 1px 0 0 0;
+}
+.context_menu .menu__list .menu__list__item.highlighted {
+  background: rgba(242, 159, 0, 0.1);
+  color: #FF7800;
+}
+.context_menu .menu__list .menu__list__item.highlighted:hover, .context_menu .menu__list .menu__list__item.highlighted:active {
+  background: rgba(242, 159, 0, 0.2);
+}
+.context_menu .menu__list .menu__list__item:hover {
+  background: rgba(70, 136, 216, 0.2);
+}
+.context_menu .menu__list .menu__list__item .icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 0 0 5px;
+}
+.context_menu .menu__list .menu__list__item .icon path {
+  fill: #666;
+}
+
+/*# sourceMappingURL=deal-context-menu.css.map */
